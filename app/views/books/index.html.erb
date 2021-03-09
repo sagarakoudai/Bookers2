@@ -14,11 +14,11 @@
     <th>
      <%= link_to book_path(book.id) do %><%= book.title %><% end %>
     </th>
-    
+
     <th><%= book.body %></th>
   </tr>
   <% end %>
   </tbody>
 </table>
 
-  <%= render "books/new" %>
+  <%= render "books/new", book: @book %>

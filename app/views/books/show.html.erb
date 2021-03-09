@@ -1,3 +1,10 @@
-共通画面
-
-投稿詳細
+<h2>Book detail</h2>
+<table class="table">
+  <tbody>
+    <td>img</td>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
+    <tb class="btn"><%= link_to "Edit" %></tb>
+    <tb class="btn"><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %></tb>
+  </tbody>
+</table>

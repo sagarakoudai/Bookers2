@@ -24,16 +24,6 @@
     <% end %>
 
 
-    <h3>User info</h3>
-
-    <h3>New book</h3>
-    <%= form_with model: @book, local:true do |f| %>
-    <h4>title</h4>
-    <%= f.text_field :title %>
-    <h4>opinion</h4>
-    <%= f.text_area :opinion %></br>
-    <%= f.submit "Create Book" %>
-    <% end %>
 
     <%= yield %>
   </body>

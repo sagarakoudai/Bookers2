@@ -36,11 +36,15 @@
       </ul>
     <% end %>
     </div>
-
-    <%= yield %>
   </header>
+  
+  <%= render 'layouts/flash' %>
+
+
+  <%= yield %>
 
   <footer>
     <p>CopyRight Infratop.inc</p>
   </footer>
+
 </html>

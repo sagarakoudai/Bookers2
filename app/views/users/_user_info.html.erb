@@ -2,15 +2,14 @@
 <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg" %>
 
 <table>
-  <tbody>
     <tr>
-      <th>name</th>
-      <tb><%= user.name %></tb>
+      <th>Name</th>
+      <td><%= user.name %></td>
     </tr>
     <tr>
-      <th>introduction</th>
+      <th>Introduction</th>
+      <td><%= user.introduction %></td>
     </tr>
-  </tbody>
 </table>
 
 <% if user.id == current_user.id %>

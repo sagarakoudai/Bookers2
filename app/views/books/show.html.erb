@@ -12,7 +12,7 @@
    <tbody>
     <tr>
       <td><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %><br><%= link_to @user.name, user_path(@user.id)%></td>
-      <td><%= @book2.title %></td>
+      <td><%= link_to book_path(@book2.id) do %> <%= @book2.title %> <% end %></td>
       <td><%= @book2.body %></td>
       <% if @user.id == current_user.id %>
        <td><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success edit_book_21459" %></td>
@@ -22,6 +22,6 @@
    </tbody>
   </table>
   </div>
-  
+
 </div>
 

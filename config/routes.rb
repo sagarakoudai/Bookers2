@@ -6,8 +6,7 @@ Rails.application.routes.draw do
 
   get "/home/about" => "homes#about"
 
- post "/books/:id" => "books#create"
-  post "/users/:id" => "books#create"
+
 
 
 end

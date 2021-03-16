@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
 
 
-
   def create
     @user = current_user
     @books = Book.all
@@ -10,20 +9,20 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book.id), notice: "You have created book successfully."
     else
-      render :index
+      render ("/books/index")
     end
   end
 
   def index
     @books = Book.all
-    @book = Book.new(book_params)
+    @book = Book.new
     @user = current_user
   end
 
   def show
-    @book = Book.new(book_params)
     @book2 = Book.find(params[:id])
     @user = User.find(@book2.user_id)
+    @book = Book.new
   end
 
   def destroy
@@ -48,8 +47,9 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.permit(:title, :body)
+    params.require(:book).permit(:title, :body)
   end
+
 
 
 end

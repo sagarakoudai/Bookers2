@@ -1,20 +1,22 @@
 class UsersController < ApplicationController
+  before_action :baria_user, only: [:edit, :destroy, :update]
 
 
   def show
     @user = User.find(params[:id])
     @books = Book.where(user_id: params[:id])
-    @book = Book.new(book_params)
+    @book = Book.new
   end
 
   def index
     @users = User.all
     @user = current_user
-    @book = Book.new(book_params)
+    @book = Book.new
   end
 
   def edit
     @user = User.find(params[:id])
+    @book = Book.new
   end
 
   def update
@@ -33,9 +35,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
-   def book_params
+  def book_params
     params.permit(:title, :body)
   end
 
+  def baria_user
+    unless User.find(params[:id]) == current_user
+      redirect_to users_path(current_user)
+    end
+  end
 
 end

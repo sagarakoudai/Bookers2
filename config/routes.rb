@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "/home/about" => "homes#about"
 
-
+get '*unmatched_route', to: "homes#top"
 
 
 end
